@@ -306,7 +306,7 @@ void startRanging(int object_number, int mode, uint8_t i2c_address, uint8_t TCA9
                                                             if (Status == VL53L0X_ERROR_NONE)
                                                             {
                                                                 Status = 
-                                                                    VL53L0X_SetMeasurementTimingBudgetMicroSeconds(pMyDevice[object_number], 33000);
+                                                                    VL53L0X_SetMeasurementTimingBudgetMicroSeconds(pMyDevice[object_number], 90000);//120000); //33000);
                                                     
                                                                 if (Status == VL53L0X_ERROR_NONE)
                                                                 {

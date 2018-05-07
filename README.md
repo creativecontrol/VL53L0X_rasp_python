@@ -4,7 +4,10 @@ This project provides a simplified python interface on Raspberry Pi to the ST VL
 
 Patterned after the cassou/VL53L0X_rasp repository (https://github.com/cassou/VL53L0X_rasp.git)
 
-In order to be able to share the i2c bus with other python code that uses the i2c bus, this library implements the VL53L0X platform specific i2c functions through callbacks to the python smbus interface. 
+In order to be able to share the i2c bus with other python code that uses the i2c bus, this library implements the VL53L0X platform specific i2c functions through callbacks to the python smbus interface.
+
+Fork:
+- includes bin with 3 versions of the shared object 'so' file for various timings for the Long Range setting. This should eventually be made a setting that can be called from Python rather than built into the shared object.
 
 Version 1.0.2:
 - Add support for TCA9548A I2C Multiplexer. Tested with https://www.adafruit.com/products/2717 breakout. (johnbryanmoore)
@@ -30,7 +33,7 @@ Notes on Multiple sensor support:
 
 Notes on using TCA9548A I2C Multiplexer:
 - If limited on GPIO's that would be needed to set a new addresses for each sensor, using a TCA9548A I2C Multiplexer is a good option since it allows using up to 8 sensors without using GPIO's.
-- The TCA9548A is also a good option if using multiple boards on the same I2C bus and the total of all the combined I2C pullups would cause the bus not to function. 
+- The TCA9548A is also a good option if using multiple boards on the same I2C bus and the total of all the combined I2C pullups would cause the bus not to function.
 - Theoretically you can connect mutltiple TCA9548A Multiplexers, each with up to 8 sensors as long each TCA9548A has a different address. This has not been tested but should work in theory.
 
 (Please note that while the author is an embedded software engineer, this is a first attempt at extending python and the author is by no means a python expert so any improvement suggestions are appreciated).
@@ -69,4 +72,3 @@ VL53L0X_multi_example.py - This example accesses 2 sensors, setting the first to
 VL53L0X_TCA9548A_example.py - This example accesses 2 sensors through a TCA9548A I2C Multiplexer with the first connected to bus 1 and the second on bus 2 on the TCA9548A.
 
 ![VL53L0X_TCA9548A_example.py Diagram](https://raw.githubusercontent.com/johnbryanmoore/VL53L0X_rasp_python/master/VL53L0X_TCA9548A_Rpi3_bb.jpg "Fritzing Diagram for VL53L0X_TCA9548A_example.py")
-
